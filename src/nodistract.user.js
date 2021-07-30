@@ -57,6 +57,15 @@
         return `<ul class="hits">${hits.map(item => `<li class="hit"><img src=${item.icon} class="hit_icon"><div class="hit_title">${item.title}</div><div class="hit_url">${item.url}</div></li>`).join('')}</ul>`;
     }
 
+    var store = {
+        get: (name) => {
+            return JSON.parse(GM_getValue('noDistract_' + name, '[]'));
+        },
+        set: (name, value) => {
+            return GM_setValue('noDistract_' + name, JSON.stringify(value));
+        }
+    };
+
     function block(allowed) {
         document.write(`<!doctype html>
 <head>
@@ -106,7 +115,7 @@ body {
         </div>
         <div class="blocker__allowed">${allowed}</div>
     </div>
-    ${htmlHits(GM_getValue('noDistract_hits', []))}
+    ${htmlHits(store.get('hits'))}
 </body>
 `);
     }
@@ -131,7 +140,7 @@ body {
                     url: window.location.href,
                     time: Date.now(),
                 };
-                GM_setValue('noDistract_hits', [hit, ...(GM_getValue('noDistract_hits'), [])]);
+                store.set('hits', [hit, ...store.get('hits')]);
                 console.log(hit);
                 block(htmlAllowedHours(hours));
             }
