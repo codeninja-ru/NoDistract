@@ -22,7 +22,7 @@
     const rules = {
         '2ch.hk': {
             allowance: {
-                hours: [11, 16, 20, 21, 22, 23, 24, 0],
+                hours: [10, 16, 20, 21, 22, 23, 24, 0],
             },
         },
         'mangadex.org': {
