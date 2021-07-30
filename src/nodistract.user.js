@@ -11,6 +11,8 @@
 // @grant GM_setValue
 // @grant GM_getValue
 // @run-at document-start
+// @downloadURL https://raw.githubusercontent.com/codeninja-ru/NoDistract/main/src/nodistract.user.js#bypass=true
+// @updateURL https://raw.githubusercontent.com/codeninja-ru/NoDistract/main/src/nodistract.user.js#bypass=true
 // ==/UserScript==
 
 
@@ -98,12 +100,13 @@ body {
 </style>
 </head>
 <body>
-<div class="blocker">
-<div class="blocker__msg">
-the page is blocked
-</div>
-<div class="blocker__allowed">${allowed}</div>
-</div>
+    <div class="blocker">
+        <div class="blocker__msg">
+            the page is blocked
+        </div>
+        <div class="blocker__allowed">${allowed}</div>
+    </div>
+    ${htmlHits(GM_getValue('noDistract_hits', []))}
 </body>
 `);
     }
@@ -124,11 +127,11 @@ the page is blocked
                 var icon = document.querySelector("link[rel*='icon']");
                 var hit = {
                     title: document.title,
-                    icon: icon ? icon.src : 'https://s2.googleusercontent.com/s2/favicons?domain=' + domain,
+                    icon: icon ? icon.href : 'https://s2.googleusercontent.com/s2/favicons?domain=' + domain,
                     url: window.location.href,
                     time: Date.now(),
                 };
-                GM_setValue('noDistract_hits', [hit, ...GM_getValue('noDistract_hits')]);
+                GM_setValue('noDistract_hits', [hit, ...(GM_getValue('noDistract_hits'), [])]);
                 console.log(hit);
                 block(htmlAllowedHours(hours));
             }
