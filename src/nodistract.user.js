@@ -11,8 +11,8 @@
 // @grant GM_setValue
 // @grant GM_getValue
 // @run-at document-start
-// @downloadURL https://raw.githubusercontent.com/codeninja-ru/NoDistract/main/src/nodistract.user.js#bypass=true
-// @updateURL https://raw.githubusercontent.com/codeninja-ru/NoDistract/main/src/nodistract.user.js#bypass=true
+// @downloadURL https://raw.githubusercontent.com/codeninja-ru/NoDistract/main/src/nodistract.user.js
+// @updateURL https://raw.githubusercontent.com/codeninja-ru/NoDistract/main/src/nodistract.user.js
 // ==/UserScript==
 
 
