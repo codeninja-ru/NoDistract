@@ -118,8 +118,8 @@ body {
             the page is blocked
         </div>
         <div class="blocker__allowed">${allowed}</div>
+        ${htmlHits(store.get('hits'))}
     </div>
-    ${htmlHits(store.get('hits'))}
 </body>
 `);
     }
@@ -144,7 +144,7 @@ body {
                     url: window.location.href,
                     time: Date.now(),
                 };
-                store.set('hits', [hit, ...store.get('hits')]);
+                store.set('hits', [hit, ...store.get('hits').filter(item => item.url != hit.url]);
                 console.log(hit);
                 block(htmlAllowedHours(hours));
             }
