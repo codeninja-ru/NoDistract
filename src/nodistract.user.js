@@ -59,7 +59,11 @@
 
     var store = {
         get: (name) => {
-            return JSON.parse(GM_getValue('noDistract_' + name, '[]'));
+            try {
+                return JSON.parse(GM_getValue('noDistract_' + name, '[]'));
+            } catch (e) {
+                return [];
+            }
         },
         set: (name, value) => {
             return GM_setValue('noDistract_' + name, JSON.stringify(value));
