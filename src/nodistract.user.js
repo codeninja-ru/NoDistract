@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NoDistract
 // @namespace    http://tampermonkey.net/
-// @version      0.2.2
+// @version      0.2.3
 // @description  an attempt to take over the world!
 // @author       You
 // @match        https://2ch.hk/*
@@ -115,6 +115,24 @@ body {
   position: absolute;
   width: 860px;
   margin: 0 auto;
+  padding: 0;
+}
+.hit {
+  color: #555;
+  padding: 0;
+  margin: 0;
+  font-size: 14px;
+  list-style: none;
+  clear: both;
+}
+.hit .hit__icon {
+  width: 32px;
+  height: 32px;
+  float: left;
+}
+.hit .hit__title, .hit .hit__url {
+  padding-left: 32px;
+  display: block;
 }
 </style>
 </head>
