@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NoDistract
 // @namespace    http://tampermonkey.net/
-// @version      0.2.3
+// @version      0.2.4
 // @description  an attempt to take over the world!
 // @author       You
 // @match        https://2ch.hk/*
@@ -54,7 +54,7 @@
 
     function htmlHits(hits) {
         //todo escape htis
-        return `<ul class="hits">${hits.map(item => `<li class="hit"><img src=${item.icon} class="hit_icon"><div class="hit_title">${item.title}</div><div class="hit_url">${item.url}</div></li>`).join('')}</ul>`;
+        return `<ul class="hits">${hits.map(item => `<li class="hit"><img src=${item.icon} class="hit__icon"><div class="hit__title">${item.title}</div><div class="hit__url">${item.url}</div></li>`).join('')}</ul>`;
     }
 
     var store = {
