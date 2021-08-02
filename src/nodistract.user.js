@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NoDistract
 // @namespace    http://tampermonkey.net/
-// @version      0.2.1
+// @version      0.2.2
 // @description  an attempt to take over the world!
 // @author       You
 // @match        https://2ch.hk/*
@@ -90,6 +90,7 @@ body {
 .blocker {
   margin: 0 auto;
   width: 1024px;
+  position: relative;
 }
 .blocker__msg {
   text-align: center;
@@ -109,6 +110,11 @@ body {
   background: #444;
   color: #fff;
   font-size: 36px;
+}
+.hits {
+  position: absolute;
+  width: 860px;
+  margin: 0 auto;
 }
 </style>
 </head>
