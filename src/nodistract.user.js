@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NoDistract
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.1
 // @description  an attempt to take over the world!
 // @author       You
 // @match        https://2ch.hk/*
