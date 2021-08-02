@@ -144,7 +144,7 @@ body {
                     url: window.location.href,
                     time: Date.now(),
                 };
-                store.set('hits', [hit, ...store.get('hits').filter(item => item.url != hit.url]);
+                store.set('hits', [hit, ...store.get('hits').filter(item => item.url != hit.url)]);
                 console.log(hit);
                 block(htmlAllowedHours(hours));
             }
