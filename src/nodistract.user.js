@@ -24,16 +24,19 @@
             allowance: {
                 hours: [10, 16, 20, 21, 22, 23, 24, 0],
             },
+            urls: ['2ch.*', 'm2ch.*'],
         },
         'mangadex.org': {
             allowance: {
                 hours: [9, 10, 16, 20, 21, 22, 23],
             },
+            urls: ['mangadex.org'],
         },
         'www.youtube.com': {
             allowance: {
                 hours: [9, 10, 16, 20, 21, 22, 23],
             },
+            urls: ['youtube.com', '*.youtube.com'],
         },
         'readmanganato.com': {
             allowance: {
@@ -55,6 +58,11 @@
     function htmlHits(hits) {
         //todo escape htis
         return `<ul class="hits">${hits.map(item => `<li class="hit"><img src=${item.icon} class="hit__icon"><div class="hit__title">${item.title}</div><div class="hit__url">${item.url}</div></li>`).join('')}</ul>`;
+    }
+
+    function wildcardMatch(str, rule) {
+        var escapeRegex = (str) => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+        return new RegExp("^" + rule.split("*").map(escapeRegex).join(".*") + "$").test(str);
     }
 
     var store = {
@@ -150,7 +158,9 @@ body {
 
     const domain = document.location.hostname;
 
-    const rule = rules[domain];
+    const [ruleGroup, rule] = Object.entries(rules).find(([key, rule]) => {
+        return rules.urls.some((pattern) => wildcardMatch(domanin, pattern));
+    });
     if (rule && rule.allowance && rule.allowance.hours) {
         const hours = rule.allowance.hours;
         var blockerFn = () => {
