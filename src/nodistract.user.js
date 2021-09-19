@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         NoDistract
 // @namespace    http://tampermonkey.net/
-// @version      0.2.5
+// @version      0.2.6
 // @description  an attempt to take over the world!
 // @author       You
 // @match        https://2ch.hk/*
@@ -159,7 +159,7 @@ body {
     const domain = document.location.hostname;
 
     const [ruleGroup, rule] = Object.entries(rules).find(([key, rule]) => {
-        return rules.urls.some((pattern) => wildcardMatch(domanin, pattern));
+        return rule.urls.some((pattern) => wildcardMatch(domanin, pattern));
     });
     if (rule && rule.allowance && rule.allowance.hours) {
         const hours = rule.allowance.hours;
