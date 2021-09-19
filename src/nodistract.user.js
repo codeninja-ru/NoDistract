@@ -159,7 +159,7 @@ body {
     const domain = document.location.hostname;
 
     const [ruleGroup, rule] = Object.entries(rules).find(([key, rule]) => {
-        return rule.urls.some((pattern) => wildcardMatch(domanin, pattern));
+        return rule.urls.some((pattern) => wildcardMatch(domain, pattern));
     });
     if (rule && rule.allowance && rule.allowance.hours) {
         const hours = rule.allowance.hours;
