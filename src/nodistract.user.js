@@ -46,6 +46,21 @@
         },
     };
 
+    function encodeHTML(unsafe) {
+        return unsafe.replace(/[&<"']/g, function(m) {
+            switch (m) {
+                case '&':
+                    return '&amp;';
+                case '<':
+                    return '&lt;';
+                case '"':
+                    return '&quot;';
+                default:
+                    return '&#039;';
+            }
+        });
+    }
+
     function not(fn) {
         return (...args) => {
             return !fn.apply(this, args);
@@ -57,8 +72,7 @@
     }
 
     function htmlHits(hits) {
-        //todo escape htis
-        return `<ul class="hits">${hits.map(item => `<li class="hit"><img src="${item.icon}" class="hit__icon"><div class="hit__title">${item.title}</div><a href="${item.url}" class="hit__url" target="__blank">${item.url}</a></li>`).join('')}</ul>`;
+        return `<ul class="hits">${hits.map(item => `<li class="hit"><img src="${encodeURI(item.icon)}" class="hit__icon"><div class="hit__title">${encodeHTML(item.title)}</div><a href="${encodeURI(item.url)}" class="hit__url" target="__blank">${encodeHTML(item.url)}</a></li>`).join('')}</ul>`;
     }
 
     function wildcardMatch(str, rule) {
