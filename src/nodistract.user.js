@@ -146,6 +146,7 @@ body {
   margin: 0;
   font-size: 14px;
   list-style: none;
+  overflow: hidden;
   clear: both;
 }
 .hit .hit__icon {
@@ -154,7 +155,6 @@ body {
   float: left;
 }
 .hit .hit__title, .hit .hit__url {
-  padding-left: 32px;
   display: block;
 }
 .hit .hit__url {
