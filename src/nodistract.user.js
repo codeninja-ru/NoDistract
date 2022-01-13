@@ -38,10 +38,11 @@
             },
             urls: ['youtube.com', '*.youtube.com'],
         },
-        'readmanganato.com': {
+        'manga': {
             allowance: {
                 hours: [9, 10, 16, 20, 21, 22, 23],
             },
+            urls: ['*manga*']
         },
     };
 
