@@ -147,6 +147,7 @@ body {
   font-size: 14px;
   list-style: none;
   overflow: hidden;
+  text-overflow: ellipsis;
   clear: both;
 }
 .hit .hit__icon {
