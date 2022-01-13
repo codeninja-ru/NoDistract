@@ -58,7 +58,7 @@
 
     function htmlHits(hits) {
         //todo escape htis
-        return `<ul class="hits">${hits.map(item => `<li class="hit"><img src=${item.icon} class="hit__icon"><div class="hit__title">${item.title}</div><div class="hit__url">${item.url}</div></li>`).join('')}</ul>`;
+        return `<ul class="hits">${hits.map(item => `<li class="hit"><img src="${item.icon}" class="hit__icon"><div class="hit__title">${item.title}</div><a href="${item.url}" class="hit__url" target="__blank">${item.url}</a></li>`).join('')}</ul>`;
     }
 
     function wildcardMatch(str, rule) {
@@ -122,8 +122,9 @@ body {
 }
 .hits {
   position: absolute;
-  width: 860px;
+  width: 760px;
   margin: 0 auto;
+  overflow: hidden;
   padding: 0;
 }
 .hit {
@@ -142,6 +143,13 @@ body {
 .hit .hit__title, .hit .hit__url {
   padding-left: 32px;
   display: block;
+}
+.hit .hit__url {
+  text-overflow: ellipsis;
+  text-decoration: underline;
+}
+.hit .hit__url:hover {
+  text-decoration: none;
 }
 </style>
 </head>
