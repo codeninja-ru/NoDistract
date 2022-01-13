@@ -147,6 +147,7 @@ body {
 .hit .hit__url {
   text-overflow: ellipsis;
   text-decoration: underline;
+  color: #555;
 }
 .hit .hit__url:hover {
   text-decoration: none;
