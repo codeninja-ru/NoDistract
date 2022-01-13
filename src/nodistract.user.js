@@ -138,7 +138,6 @@ body {
   position: absolute;
   width: 760px;
   margin: 0 auto;
-  overflow: hidden;
   padding: 0;
 }
 .hit {
@@ -162,6 +161,7 @@ body {
   text-overflow: ellipsis;
   text-decoration: underline;
   color: #555;
+  white-space: nowrap;
 }
 .hit .hit__url:hover {
   text-decoration: none;
