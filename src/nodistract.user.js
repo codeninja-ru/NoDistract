@@ -1,13 +1,16 @@
 // ==UserScript==
 // @name         NoDistract
 // @namespace    http://tampermonkey.net/
-// @version      0.2.27
+// @version      0.2.28
 // @description  an attempt to take over the world!
 // @author       You
 // @match        https://2ch.hk/*
 // @match        https://www.youtube.com/*
 // @match        https://mangadex.org/*
 // @match        https://readmanganato.com/*
+// @match        https://asura.gg/*
+// @match        https://reaperscans.com/*
+// @match        https://flamescans.com/*
 // @grant GM_setValue
 // @grant GM_getValue
 // @run-at document-start
@@ -42,7 +45,7 @@
             allowance: {
                 hours: [9, 10, 16, 20, 21, 22, 23],
             },
-            urls: ['*manga*']
+            urls: ['*manga*', 'asura.gg', 'reaperscans.com', 'flamescans.org']
         },
     };
 
